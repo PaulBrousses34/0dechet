@@ -208,94 +208,111 @@ GIVE BY, 0N USER, 01 RATE
 
 
 
+## 8. Dictionnaire des routes
+
+### a. FrontOffice
+
+|Controller|URL|HTTP Method|Method|Title|Content|
+|---    |:-:    |:-:    |:-:    |:-:    |--:    |
+|MainController|/|GET|home|Accueil|Accueil de 0'dechet|
+||/contact|GET-POST|contact|Contact|Page contact|
+|UserController|/profil/{slug}|GET|Read|Mon espace personnel|Affiche les informations utilisateurs et autres membres|
+||/profil/edition/{slug}|GET-POST|Edit|Modifier mon profil|Affiche le formulaire de modification du profil|
+||/inscription|GET-POST|Add|Créer un profil|Formulaire d'inscription|
+||/profil/suppression/{slug}|DELETE|Delete|Bouton de suppression|Supprimer mon profil|
+|SecurityController|/connexion|GET – POST|app_login|Connexion|Formulaire de connexion|
+||/deconnexion|POST|app_logout|Déconnexion|Bouton ou lien de deconnexion|
+|RecipeController|/recette|GET|Browse|Toutes les recettes|
+||recette/{slug}|GET|Read|{name} de la recette|Affichage d'une recette|
+||recette/edition/{slug}|GET-POST|Edit|Modifier une recette|Affichage du formulaire de modification|
+||recette/ajout|GET-POST|Add|Ajouter une recette|Affichage du formulaire d'ajout|
+||recette/suppression/{id}|DELETE|delete|-|Bouton de supression|
+||recette/type/{slug}|GET|browseByType|{name} du type|Affichage des recettes selon un type|
+||recette/sous-categorie/{slug}|GET|browseBySousCategory|{name} de la sous-categorie|Affichage des recettes selon une sous-categorie|
+||recette/categorie/{slug}|GET|browseByCategory|{name} de la categorie|Affichage des recettes selon une categorie|
 
 
+### b.BackOffice
+
+|Controller|URL|HTTP Method|Method|Title|Content|
+|---    |:-:    |:-:    |:-:    |:-:    |--:    |
+|RecipeController|/admin/recipe|GET|Browse|Toutes les recettes|Affichage de toutes les recettes|
+||/admin/recipe/{id}|GET|Read|Affichage d'une recette|Affichage d'une recette|
+||/admin/recipe/edit/{id}|GET|Edit|Modifier une recette|Formulaire de modification d'une recette|
+||/admin/recipe/add|GET|Add|Ajouter une recette|Formulaire d'ajout d'une recette|
+||/admin/recipe/delete/{id}|GET|Delete|-|Bouton de suppression|
+|TypeController|/admin/type|GET|Browse|Toutes les types|Affichage de toutes les types|
+||/admin/type/{id}|GET|Read|{name} du type|Affichage d'un type|
+||/admin/type/edit/{id}|GET|Edit|Modifier un type|Formulaire de modification d'un type|
+||/admin/type/add|GET|Add|Ajouter un type|Formulaire d'ajout d'un type|
+||/admin/type/delete/{id}|GET|Delete|-|Bouton de suppression|
+|SubCategoryController|/admin/sub_category|GET|Browse|Toutes les sous catégories|Affichage de toutes les sous catégories|
+||/admin/sub_category/{id}|GET|Read|{name} d'une sous catégorie|Affichage d'une sous catégorie|
+||/admin/sub_category/edit/{id}|GET|Edit|Modifier une sous catégorie|Formulaire de modification d'une sous catégorie|
+||/admin/sub_category/add|GET|Add|Ajouter une sous catégorie|Formulaire d'ajout d'une sous catégorie|
+||/admin/sub_category/delete/{id}|GET|Delete|-|Bouton de suppression|
+|CategoryController|/admin/category|GET|Browse|Toutes les catégories|Affichage de toutes les catégories|
+||/admin/category/{id}|GET|Read|{name} d'une catégorie|Affichage d'une catégorie|
+||/admin/category/edit/{id}|GET|Edit|Modifier une catégorie|Formulaire de modification d'une catégorie|
+||/admin/category/add|GET|Add|Ajouter une catégorie|Formulaire d'ajout d'une catégorie|
+||/admin/category/delete/{id}|GET|Delete|-|Bouton de suppression|
+|CommentController|/admin/comment|GET|Browse|Tous les commentaires|Affichage de toutes les commentaires|
+||/admin/comment/{id}|GET|Read|{title} d'un commentaire|Affichage d'un commentaire|
+||/admin/comment/edit/{id}|GET|Edit|Modifier un commentaire|Formulaire de modification d'un commentaire|
+||/admin/comment/add|GET|Add|Ajouter un commentaire|Formulaire d'ajout d'un commentaire|
+||/admin/comment/delete/{id}|GET|Delete|-|Bouton de suppression|
+|UserController|/admin/user|GET|Browse|Tous les utilisateurs|Affichage de toutes les utilisateurs|
+||/admin/user/{id}|GET|Read|{username}|Affichage d'un utilisateur|
+||/admin/user/edit/{id}|GET|Edit|Modifier un utilisateur|Formulaire de modification d'un utilisateur|
+||/admin/user/add|GET|Add|Ajouter un utilisateur|Formulaire d'ajout d'un utilisateur|
+||/admin/user/delete/{id}|GET|Delete|-|Bouton de suppression|
 
 
-
-
-
-
-
-
-
-
-
-### e) User stories
+## 9. User stories
 
 
 |En tant que|Je veux pouvoir|Afin de|
 |---    |:-:    |:-:    |
-| Visiteur |Consulter les actualités|Me tenir informé de l’actualité|       
-|       |Consulter l’agenda|Me tenir informé des événements à venir |
-|       |Consulter les informations juridiques|Obtenir des renseignements d’ordre juridique|
-|       |En savoir plus sur l’AMF34|Afin de connaître l’association et ses objectifs|
-|       |Contacter un administrateur via un formulaire de contact|Obtenir de renseignements, proposer quelque chose ou porter une réclamation|
-|       |Obtenir un devis et/ou souscrire à une assurance|Souscrire ou obtenir un devis |
-|       |Rechercher un élément du site via un moteur de recherche|Accéder rapidement à une information précise|
-| Utilisateur connecté |Accéder à l’annuaire des membres|Rechercher un numéro de téléphone, une adresse email, des informations sur un membre, ...|
-| Administrateur |Ajouter, modifier, supprimer un article|Gérer le contenu du site |
-|       |Ajouter, modifier, supprimer un membre|Gérer le contenu du site |
-|       |Ajouter, modifier, supprimer un évènement|Gérer le contenu du site|
-
-### f) Dictionnaire des routes
-
-|Controller|URL|HTTP Method|Method|Title|Content|
-|---    |:-:    |:-:    |:-:    |:-:    |--:    |
-| **FrontOffice** |
-|HomeController|/|GET|home|Accueil|Actu et agenda|
-| |/contact|GET-POST|contact|Contact|Formulaire et infos|
-|InfoController|/actualites|GET|Browse|Actualités|Liste de toutes les actualités|
-| |/actualites/{slug}|GET|Read|Article {title}|Un article|
-|EventController|/agenda|GET|Browse|Les événements|Liste des événements|
-||/agenda/{slug}|GET|Read|Evenement {title}|Un evenement|
-|UserController|/profil/{id}|GET|Read|Mon espace personnel|Affiche les informations utilisateurs et autres membres|
-||/profil/edition/{id}|GET-POST|Edit|Modifier mon profil|Affiche le formulaire de modification du profil|
-||/profil/suppression/{id}|DELETE|Delete|Bouton de suppression|Supprimer mon profil|
-|SecurityController|/connexion|GET – POST|app_login|Connexion|Formulaire de connexion|
-||/deconnexion|POST|app_logout|Déconnexion|Bouton ou lien de deconnexion|
-| **BackOffice** |
-|InfoCrudController|/admin/actualites|GET|Browse|Toutes les actualités|Liste des actualités|
-||/admin/actualites/{id}|GET|Read|{title} de l'article|Affichage d’un article en particulier|
-||/admin/actualites/edition/{id}|GET-POST|Edit|Modifier un article|Formulaire de modification de l’article|
-||/admin/actualites/ajouter|GET-POST|Add|Ajouter un article|Formulaire d’ajout d’un article|
-||/admin/actualites/suppression/{id}|DELETE|Delete|Suppression d'un article|Bouton de suppression d'un article|
-|EventCrudController|/admin/evenement|GET|Browse|Liste de toutes les evenements|Affichage de la liste des evenements|
-||/admin/evenement/{id}|GET|Read|Evenement {name}|Affichage d'un evenement|
-||/admin/evenement/edition/{id}|GET-POST|Edit|Modifier un evenement|Formulaire de modification d'un evenement|
-||/admin/evenement/ajouter|GET-POST|Add|Ajouter un evenement|Formulaire d’ajout d'un evenement|
-||/admin/evenement/suppression/{id}|DELETE|Delete|Suppression d'un evenement|Bouton de suppression d'un evenement|
-|UtilisateurCrudController|/admin/utilisateurs|GET|Browse|Liste de tous les utilisateurs|Affichage de la liste des utilisateurs|
-||/admin/utilisateur/{id}|GET|Read|Utilisateur {name}|Affichage d'un utilisateur|
-||/admin/utilisateur/edition/{slug}|GET-POST|Edit|Modifier un utilisateur|Formulaire de modification d'un utilisateur|
-||/admin/utilisateur/ajouter|GET-POST|Add|Ajouter un utilisateur|Formulaire d’ajout d’un utilisateur|
-||/admin/utilisateur/suppression/{id}|DELETE|Delete|Suppression d'un utilisateur|Bouton de suppression d'un utilisateur|
+| Visiteur |visualiser toutes les recettes|avoir une vision d'ensemble sur les recettes du site|       
+|       |trier les recettes par note|visualiser facilement les meilleures recettes|
+|       |trier les recettes par difficulté|visualiser facilement les recettes adaptées à mon niveau|
+|       |filtrer les recettes par catégories|pouvoir accéder plus facilement aux recettes que je recherche|
+|       |filtrer les recettes par sous-catégories|pouvoir accéder plus facilement aux recettes que je recherche|
+|       |filtrer les recettes par types|pouvoir accéder plus facilement aux recettes que je recherche|
+|       |afficher toutes les recettes d'un utilisateur|visualiser toutes les recettes qu'il a posté|
+|       |rechercher une recette|trouver une recette correspondant à mon besoin|
+|       |m'inscrire sur le site|pouvoir accéder à de nouvelles fonctionnalités|
+| Utilisateur connecté |se connecter|pouvoir accéder à plus de fonctionnalités sur le site|
+|       |ajouter une recette|partager mes recettes avec la communnauté du site|
+|       |ajouter une recette en favoris|retrouver mes recettes préférées directement sur mon profil|
+|       |noter une recette|pouvoir donner mon avis|
+|       |commenter une recette|pouvoir donner mon avis|
+|       |modifier mon profil|modifier mon mot de passe ou mon adresse email|
+|       |supprimer mon profil|me désinscrire du site|
+|       |associer une vidéo à ma recette|montrer étape par étape la réalisation de la recette|
+| Administrateur |Ajouter, modifier, supprimer des recettes|Gérer le contenu du site |
+|       |Ajouter, modifier, supprimer des utilisateurs|Gérer le contenu du site |
+|       |Ajouter, modifier, supprimer des commentaires|Gérer le contenu du site|
+|       |Ajouter, modifier, supprimer des catégories|Gérer le contenu du site |
+|       |Ajouter, modifier, supprimer des sous-catégories|Gérer le contenu du site|
+|       |Ajouter, modifier, supprimer des types|Gérer le contenu du site|
 
 
 
+## 10. Charte Graphique
 
-### h) Modèle Conceptuel de Données
-
-Incomplet en attente de validation et de precisions supplémentaires 
-
-![Modèle Conceptuel de Données](https://raw.githubusercontent.com/PaulBrousses34/AMF34/master/AMF34/public/images/MCD.png)
+### a. Couleurs
 
 
-## 4. Organisation
-
-### a) Planning
-
-Le développement du site se fera sur 4 semaines. Suite à la mise en production une veille technologique est à prévoir. Le développement du site ne pourra commencer que lorsque le cahier des charges sera complet. Le travail s’effectuera selon les principes de la méthodes Agile Scrum les cycles de développement seront donc découpés en sprint d'une semaine chacun de la manière suivante : 
-
-|Sprint|Tâches|
-|---    |:-:    |
-|1|Intégration HTML/CSS, création de la base de données, création de fixtures|
-|2|Création des Controllers et des méthodes, création des formulaires, création des templates associés à toutes les méthodes|
-|3|Mise en en place des diverses contraintes, gestion des rôles, création et configuration BackOffice|
-|4|Recherche et correction de bugs, tests unitaires et fonctionnels, mise en production|
-
-### b) Gestion du versionning
+![Palette couleur](https://raw.githubusercontent.com/PaulBrousses34/0dechet/master/public/assets/images/paletteCouleur.png)
 
 
-Chaque jour le développement se fera sur une nouvelle branche Git se nommant 12/12 par exemple si la date du jour est le 12 décembre. Cela permet de récupérer facilement la version voulue. Chaque jour les tâches effectuées seront notées dans un cahier de bord afin de récupérer plus facilement une partie du code en cas de problème. 
+### b. Maquette avec couleur
+
+![Maquette couleur 1](https://raw.githubusercontent.com/PaulBrousses34/0dechet/master/public/assets/images/maquetteCouleur1.png)
+![Maquette couleur 2](https://raw.githubusercontent.com/PaulBrousses34/0dechet/master/public/assets/images/maquetteCouleur2.png)
+
+### c. Logo
+
+![Propositions logos](https://raw.githubusercontent.com/PaulBrousses34/0dechet/master/public/assets/images/propLogo.png)
 
